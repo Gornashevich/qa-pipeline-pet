@@ -1,0 +1,55 @@
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+    alias(libs.plugins.ben.manes)
+    alias(libs.plugins.lombok)
+    alias(libs.plugins.spotless)
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(21))
+    }
+}
+
+repositories {
+    mavenCentral()
+    gradlePluginPortal()
+}
+
+test{
+    useTestNG()
+}
+
+dependencies {
+    implementation libs.selenium
+    implementation libs.selenide
+    implementation libs.webdrivermanager
+    implementation libs.testng
+    implementation libs.annotations
+    implementation libs.assertj.core
+    implementation libs.owner
+
+    implementation libs.bundles.restassured
+
+    implementation libs.slf4j.simple
+    implementation libs.logback.classic
+    implementation libs.bundles.log4j
+
+    implementation libs.testng.reporting
+
+    implementation libs.bundles.jackson
+
+    testImplementation platform("org.junit:junit-bom:${libs.versions.junit.get()}")
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+spotless {
+    java {
+        googleJavaFormat()
+        targetExclude '**/build/**'
+    }
+}

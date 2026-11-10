@@ -1,0 +1,49 @@
+[versions]
+annotations             = "26.0.2"
+assertj                 = "3.26.3"
+ben-manes               = "0.51.0"
+jackson                 = "2.19.0"
+junit                   = "5.13.0-M2"
+log4j                   = "2.17.1"
+logback                 = "1.5.18"
+lombok                  = "8.13.1"
+owner                   = "1.0.12"
+restassured             = "5.5.1"
+selenide                = "7.9.1"
+selenium                = "4.31.0"
+spotless                = "7.0.2"
+slf4j                   = "2.0.0"
+testng                  = "7.11.0"
+testng-reporting        = "1.1.4"
+webdrivermanager        = "6.1.0"
+
+[libraries]
+annotations             = { module = "org.jetbrains:annotations",                              version.ref = "annotations" }
+assertj-core            = { module = "org.assertj:assertj-core",                               version.ref = "assertj" }
+jackson-annotations     = { module = "com.fasterxml.jackson.core:jackson-annotations",         version.ref = "jackson" }
+jackson-databind        = { module = "com.fasterxml.jackson.core:jackson-databind",            version.ref = "jackson" }
+jackson-datatype-jsr310 = { module = "com.fasterxml.jackson.datatype:jackson-datatype-jsr310", version.ref = "jackson" }
+log4j-api               = { module = "org.apache.logging.log4j:log4j-api",                     version.ref = "log4j" }
+log4j-core              = { module = "org.apache.logging.log4j:log4j-core",                    version.ref = "log4j" }
+log4j-slf4j-impl        = { module = "org.apache.logging.log4j:log4j-slf4j-impl",              version.ref = "log4j" }
+logback-classic         = { module = "ch.qos.logback:logback-classic",                         version.ref = "logback" }
+owner                   = { module = "org.aeonbits.owner:owner",                               version.ref = "owner" }
+restassured             = { module = "io.rest-assured:rest-assured",                           version.ref = "restassured" }
+restassured-jsonpath    = { module = "io.rest-assured:json-path",                              version.ref = "restassured" }
+restassured-schema      = { module = "io.rest-assured:json-schema-validator",                  version.ref = "restassured" }
+selenide                = { module = "com.codeborne:selenide",                                 version.ref = "selenide" }
+selenium                = { module = "org.seleniumhq.selenium:selenium-java",                  version.ref = "selenium" }
+slf4j-simple            = { module = "org.slf4j:slf4j-simple",                                 version.ref = "slf4j" }
+testng                  = { module = "org.testng:testng",                                      version.ref = "testng" }
+testng-reporting        = { module = "org.uncommons:reportng",                                 version.ref = "testng-reporting" }
+webdrivermanager        = { module = "io.github.bonigarcia:webdrivermanager",                  version.ref = "webdrivermanager" }
+
+[bundles]
+jackson                 = ["jackson-annotations", "jackson-databind", "jackson-datatype-jsr310"]
+log4j                   = ["log4j-api", "log4j-core", "log4j-slf4j-impl"]
+restassured             = ["restassured", "restassured-jsonpath", "restassured-schema"]
+
+[plugins]
+ben-manes               = { id = "com.github.ben-manes.versions",                              version.ref = "ben-manes" }
+lombok                  = { id = "io.freefair.lombok",                                         version.ref = "lombok" }
+spotless                = { id = "com.diffplug.spotless", version.ref = "spotless" }
